@@ -1,4 +1,6 @@
 # Tshooter
+(This project is an ongoing work in progress; more features and improvements are coming soon.)
+
 
 This is a troubleshooter for a deployment in a Kubernetes cluster. 
 It will check all steps in troubleshooting from DNS resolve to check ingress, services, deployments, and pods. 
