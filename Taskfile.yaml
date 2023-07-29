@@ -1,0 +1,29 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    deps:
+      - test
+
+  check:
+    cmds:
+      - go vet ./...
+      - golint ./...
+      - go test -v ./...
+  
+  build:
+    cmds:
+      - go build -o tshooter
+    deps:
+      - check
+  
+  test:
+    cmds:
+      - ./tshooter config
+    deps:
+      - build
