@@ -43,8 +43,10 @@ It will check all steps in troubleshooting from DNS resolve to check ingress, se
         ```bash
             tshooter config list
         ```
+
 3. `check`: to check the url
     Usage:
+
         ```bash
             tshooter check "URL"
         ```
