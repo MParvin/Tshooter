@@ -32,21 +32,16 @@ It will check all steps in troubleshooting from DNS resolve to check ingress, se
 ## Commands:
 
 1. `config`: to configure kubernetes cluster credentials
-    * It just need a `get`
-    Usage:
-        ```bash
-            tshooter config 'kube_config_file'
-        ```
+```bash
+    tshooter config 'kube_config_file'
+```
 
 2. `config list`: list all configurations
-    Usage:
-        ```bash
-            tshooter config list
-        ```
+```bash
+    tshooter config list
+```
 
 3. `check`: to check the url
-    Usage:
-
-        ```bash
-            tshooter check "URL"
-        ```
+```bash
+    tshooter check "URL"
+```
