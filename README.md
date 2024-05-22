@@ -36,6 +36,11 @@ It will check all steps in troubleshooting from DNS resolve to check ingress, se
     tshooter config 'kube_config_file'
 ```
 
+example:
+```bash
+    tshooter config ~/.kube/config
+```
+
 2. `config list`: list all configurations
 ```bash
     tshooter config list
