@@ -1,5 +1,7 @@
 package cmd
 
+// Todo: --context - to use a specific context for troubling in kubernetes cluster.
+
 import (
 	"fmt"
 
