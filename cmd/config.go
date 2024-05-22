@@ -3,42 +3,38 @@ package cmd
 import (
 	"fmt"
 
+	tools "github.com/mparvin/tshooter/tools"
 	"github.com/spf13/cobra"
 )
 
 // configCmd represents the config command
 var configCmd = &cobra.Command{
 	Use:   "config",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Read config file(s) and list contexts",
+	Long: `It read kubernetes config file and then list all contexts, for example:
+	$ tshooter config ~/.kube/config
+	will read config file ~/.kube/config
+	$ tshooter config -l
+	or
+	$ tshooter config --list
+	will list all contexts`,
 	Run: func(cmd *cobra.Command, args []string) {
-		if cmd.Flags().Lookup("list").Changed == true {
-			show_config()
+
+		listFlag := cmd.Flags().Lookup("list")
+		if listFlag != nil && listFlag.Changed {
+			fmt.Println("Listing all contexts")
+			config := tools.GetConfig(
+			tools.ShowContexts(config)
 			return
 		}
-		fmt.Println("config called")
+		fmt.Println("Reading config file(s) and list contexts")
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(configCmd)
 
-	// Here you will define your flags and configuration settings.
+	configCmd.PersistentFlags().String("list", "l", "List contexts")
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// configCmd.PersistentFlags().String("list", "l", "List contexts")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
 	configCmd.Flags().BoolP("list", "l", true, "List contexts")
-}
-
-func show_config() {
-	fmt.Println("Read config file")
 }
